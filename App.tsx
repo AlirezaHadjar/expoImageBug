@@ -25,7 +25,7 @@ const Tab1 = ({ images }: { images: UseQueryResult<APIImage[], Error> }) => {
       numColumns={2}
       renderItem={({ item: image }) => {
         return (
-          <View style={{ width: size, height: size, backgroundColor: "blue" }}>
+          <View style={{ width: size, height: size }}>
             <Image
               style={{
                 width: "100%",
@@ -34,7 +34,6 @@ const Tab1 = ({ images }: { images: UseQueryResult<APIImage[], Error> }) => {
               source={{
                 uri: image.urls.regular,
               }}
-              recyclingKey={image.id}
               placeholder={{ uri: image.urls.thumb }}
             />
           </View>
@@ -52,18 +51,15 @@ const Tab2 = ({ images }: { images: UseQueryResult<APIImage[], Error> }) => {
       numColumns={2}
       renderItem={({ item: image }) => {
         return (
-          <View style={{ width: size, height: size, backgroundColor: "blue" }}>
+          <View style={{ width: size, height: size }}>
             <Image
-              cachePolicy={"memory"}
               style={{
                 width: "100%",
                 height: "100%",
               }}
-              contentFit="cover"
               source={{
                 uri: image.urls.regular,
               }}
-              recyclingKey={image.id}
               placeholder={{ uri: image.urls.thumb }}
             />
           </View>
