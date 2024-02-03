@@ -22,8 +22,6 @@ const Tab1 = ({ images }: { images: UseQueryResult<APIImage[], Error> }) => {
     <FlatList
       data={images.data}
       contentContainerStyle={{ minHeight: 200 }}
-      // refreshing={images.isLoading || images.isRefetching}
-      // onRefresh={() => images.refetch()}
       numColumns={2}
       renderItem={({ item: image }) => {
         return (
@@ -51,13 +49,12 @@ const Tab2 = ({ images }: { images: UseQueryResult<APIImage[], Error> }) => {
       data={images.data}
       horizontal={false}
       contentContainerStyle={{ minHeight: 200 }}
-      // refreshing={images.isLoading || images.isRefetching}
-      // onRefresh={() => images.refetch()}
       numColumns={2}
       renderItem={({ item: image }) => {
         return (
           <View style={{ width: size, height: size, backgroundColor: "blue" }}>
             <Image
+              cachePolicy={"memory"}
               style={{
                 width: "100%",
                 height: "100%",
